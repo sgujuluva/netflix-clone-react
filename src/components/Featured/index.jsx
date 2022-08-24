@@ -11,6 +11,8 @@ function Featured() {
         src="https://media.istockphoto.com/photos/father-and-daughter-day-picture-id584570368?b=1&k=20&m=584570368&s=170667a&w=0&h=bpjAb4pVSIYO63hXJR94UCX83d_fFbd4-PgogYWsu34="
         alt=""
       />
+      <div className="info">
+        
       <span className="description">
         If you want a happy ending, that depends, of course, on where you stop
         your story. ... Always make the audience suffer as much as possible. ...
@@ -27,6 +29,7 @@ function Featured() {
           <InfoIcon />
           <span>More Info</span> 
         </button>
+      </div>
       </div>
     </div>
   );
