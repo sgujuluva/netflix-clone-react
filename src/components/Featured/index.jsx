@@ -4,9 +4,22 @@ import "./Featured.css";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoIcon from "@mui/icons-material/Info";
 
-function Featured() {
+function Featured({type}) {
   return (
     <div className="featured">
+        {type &&  ( 
+            <div className="category">
+                <span>{type === "movie" ? "Movies" : "Series"}</span>
+                <select name="Genre" id="genre">
+                    <option >Genre</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="horror">Horror</option>
+                    <option value="crime">Crime</option>
+                    <option value="sciencefiction">Sci-fi</option>
+                    <option value="comedy">Comedy</option>
+                </select>
+            </div>
+            )}
       <img
         src="https://media.istockphoto.com/photos/father-and-daughter-day-picture-id584570368?b=1&k=20&m=584570368&s=170667a&w=0&h=bpjAb4pVSIYO63hXJR94UCX83d_fFbd4-PgogYWsu34="
         alt=""
