@@ -28,7 +28,15 @@ function Navbar() {
             src="https://cdn.pixabay.com/photo/2015/10/09/00/55/lotus-978659__340.jpg"
             alt=""
           />
+          <div className="profile">
           <ArrowDropDownIcon />
+          <div className="options">
+          <span>Settings</span>
+          <span>Logout</span>
+          </div>
+          
+          </div>
+          
         </div>
       </div>
     </div>
