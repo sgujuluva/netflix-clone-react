@@ -1,0 +1,24 @@
+.list {
+  width: 100%;
+}
+.list .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list .container {
+  width: 100%;
+
+  padding: 2%;
+
+  display: flex;
+  flex-wrap: wrap;
+
+}
+ .list .wrapper .arrow-icon{
+      color:red;
+    font-weight: 800;
+}
+.list .wrapper .container{
+    transform: translateX(0);
+}
