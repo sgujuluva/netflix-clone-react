@@ -8,9 +8,10 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 function List() {
     let listRef = useRef();
     const handleClick = (direction) => {
+        let distance=listRef.current.getBoundingClientRect().x -24;
         if(direction === "left"){
-            listRef.current.style.transform = `translateX(250px)`
-        }
+            listRef.current.style.transform = `translateX(${250+distance}px)`
+               }
     }
   return (
     <div className="list">
