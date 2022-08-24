@@ -1,0 +1,19 @@
+.navbar-container{
+    padding:2%;
+    border:2px solid red;
+    color:red;
+    display:flex;
+
+}
+.navbar-container .left{
+    border:2px solid white;
+    width:20%;
+}
+.navbar-container .right{
+    border:2px solid white;
+    width:80%;
+}
+.logo{
+    width:20%;
+    padding:0.3%;
+}
