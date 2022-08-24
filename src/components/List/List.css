@@ -1,24 +1,35 @@
 .list {
   width: 100%;
-}
-.list .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+ 
 }
 .list .container {
-  width: 100%;
-
-  padding: 2%;
-
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position:relative;
+  }
+.list .wrapper {
   display: flex;
-  flex-wrap: wrap;
+  padding:1%;
+  justify-content: space-between;
+  align-items: center;
+  width:max-content;
 
 }
+
  .list .wrapper .arrow-icon{
       color:red;
     font-weight: 800;
+    position:absolute;
+    cursor:pointer;
+}
+.list .wrapper .left-ic{
+    left:0px;
+}
+.list .wrapper .right-ic{
+    right:0px;
 }
 .list .wrapper .container{
-    transform: translateX(0);
+    transform: translateX(0px);
+   
 }
