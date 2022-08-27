@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
+//components
+import Thumbnail from "../Thumbnail";
 //icons
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
+//css
+import "./Rows.css"
+import { imageListClasses } from "@mui/material";
 
-function Rows({ title }) {
-  const [movies, setMovies] = useState([]);
+function Rows({ title,movies }) {
+     console.log("the movies is:",movies)
+
+  /* const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchDataFromAPI =  () => {
@@ -24,13 +31,19 @@ function Rows({ title }) {
       }).then(data=> setMovies(data))
     };
     fetchDataFromAPI();
-  }, []);
-console.log(movies)
+  }, []); */
+
   return (
-    <div>
+    <div className="main-list">
       <h2>{title}</h2>
-      <div>
+      <div className="movie-list">
         <ChevronLeftOutlinedIcon />
+        <div className="thumbnail">
+           {movies.map((movie => (
+                <Thumbnail key={movie.id} movieThumbnail={movie}/>
+            )))}    
+              
+        </div>
         <ChevronRightOutlinedIcon />
       </div>
     </div>
