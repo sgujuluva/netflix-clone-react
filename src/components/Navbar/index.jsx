@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 //styles
 import "./Navbar.css";
 //images
@@ -7,7 +7,24 @@ import SearchIcon from "@mui/icons-material/Search";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if(window.scroll > 0){
+        setIsScrolled(true)
+      }else{
+        setIsScrolled(false)
+      }
+    }
+    window.addEventListener("scroll",handleScroll)
+    return () => {
+      window.removeEventListener("scroll",handleScroll)
+    }
+  },[]);
+
   return (
+   <div className={`${isScrolled && "backgroundColor-black"}`}>
     <div className="navbar">
       <div className="navbar-container">
         <div className="left">
@@ -15,7 +32,7 @@ function Navbar() {
           <span>Home</span>
           <span>Series</span>
           <span>Movies</span>
-          <span>New and Popular</span>
+          <span>New & Popular</span>
           <span>My List</span>
         </div>
 
@@ -39,6 +56,7 @@ function Navbar() {
           
         </div>
       </div>
+    </div>
     </div>
   );
 }
