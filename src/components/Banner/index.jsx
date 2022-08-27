@@ -12,7 +12,7 @@ function Banner() {
       const response = await Axios.get(
         `https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&with_network=213`
       );
-      let datas = response.data.results;
+      let datas =await response.data.results;
       //getting random poster
            let randomPoster = [];
       for (let i = 0; i < datas.length; i++) {
@@ -27,7 +27,7 @@ function Banner() {
  
   return (
     <div className="poster">
-      {netflixOriginals.map((item) => {
+       {netflixOriginals && netflixOriginals.map((item) => {
         return (
           <>
             <div className="image-container">
@@ -35,14 +35,15 @@ function Banner() {
                 src={`${baseUrl}${item?.backdrop_path || item?.backdrop_path}`}
                 alt=""
               />
-              <span>
+               <span>
                 <h1>{item.title}</h1>
                 <p>{item.overview}</p>
               </span>
             </div>
+          
           </>
         );
-      })}
+      })} 
     </div>
   );
 }
