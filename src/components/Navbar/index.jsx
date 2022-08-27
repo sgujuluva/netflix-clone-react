@@ -24,7 +24,8 @@ function Navbar() {
   },[]);
 
   return (
-   <div className={`${isScrolled && "backgroundColor-black"}`}>
+   <div className={`${isScrolled && "backgroundColor:red"}`}>
+
     <div className="navbar">
       <div className="navbar-container">
         <div className="left">

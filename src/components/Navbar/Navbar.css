@@ -2,7 +2,8 @@
   z-index:1;
   position:fixed;
   top:0;
-  background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.3)50%);
+ 
+ /*  background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.3)50%); */
 }
 .navbar-container {
   width: 100%;
