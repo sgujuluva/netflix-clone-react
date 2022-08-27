@@ -1,28 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Axios from "axios"
+//components
 import Featured from "../Featured/index";
 import Navbar from "../Navbar/index";
 import List from "../List/index";
-import requests from "../utils/request"
+ import requests from "../utils/request" 
+import Banner from "../Banner";
 //styles
 import "./Home.css";
-function Home({netflixOriginals, trendingNow, topRated, actionMovies, comedyMovies, horrorMovies, romanceMovies,documentaries}) {
+
+
+
+function Home() {
+
+const [movies,setMovies] = useState([])
+
+const apiFetch = async() => {
+  const response = await Axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&with_network=213`)
+  setMovies(response.data.results)
+}
+
+console.log("the movie",movies)
+useEffect(() => {
+  apiFetch()
+},[])
   return (
     <div className="home">
       <Navbar />
-       <Featured />
+       <Banner movie = {movies}/> 
+       {/* <Featured /> */}
+      {/* <List/>
       <List/>
       <List/>
-      <List/>
-      <List/>
+      <List/> */}
     </div>
   );
 }
 
 export default Home;
 
-export const fetchDataFromAPI = async () => {
+/* export const fetchDataFromAPI = async () => {
 const [netflixOriginals, trendingNow, topRated, actionMovies, comedyMovies, horrorMovies, romanceMovies,documentaries] = await Promise.all([
-  fetch(requests.fetchNetflixOriginals).then(res => res.json()),
+  fetch(requests.fetchNetflixOriginals).then(res => res.json()).then(data=>console.log(data.results) ),
   fetch(requests.fetchTrendingNow).then(res => res.json()),
   fetch(requests.fetchTopRated).then(res => res.json()),
   fetch(requests.fetchActionMovies).then(res => res.json()),
@@ -30,8 +49,8 @@ const [netflixOriginals, trendingNow, topRated, actionMovies, comedyMovies, horr
   fetch(requests.fetchHorrorMovies).then(res => res.json()),
   fetch(requests.fetchRomanceMovies).then(res => res.json()),
   fetch(requests.fetchDocumentaries).then(res => res.json()),
-])
-return{
+]) */
+/* return{
   props:{
     netflixOriginals:netflixOriginals.results,
     trendingNow:trendingNow.results,
@@ -42,5 +61,4 @@ return{
     romanceMovies:romanceMovies.results,
     documentaries : documentaries.results,
   }
-}
-}
+} */
