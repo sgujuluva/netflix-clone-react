@@ -1,34 +1,22 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios"
+import Axios from "axios";
 //components
 import Featured from "../Featured/index";
 import Navbar from "../Navbar/index";
 import List from "../List/index";
- import requests from "../utils/request" 
+import requests from "../utils/request";
 import Banner from "../Banner";
+
 //styles
-import "./Home.css";
-
-
+ import "./Home.css"; 
 
 function Home() {
-
-const [movies,setMovies] = useState([])
-
-const apiFetch = async() => {
-  const response = await Axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&with_network=213`)
-  setMovies(response.data.results)
-}
-
-console.log("the movie",movies)
-useEffect(() => {
-  apiFetch()
-},[])
+   
   return (
     <div className="home">
       <Navbar />
-       <Banner movie = {movies}/> 
-       {/* <Featured /> */}
+      <Banner />
+      {/* <Featured /> */}
       {/* <List/>
       <List/>
       <List/>
