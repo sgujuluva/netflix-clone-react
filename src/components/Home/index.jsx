@@ -6,28 +6,32 @@ import Navbar from "../Navbar/index";
 import List from "../List/index";
 import requests from "../utils/request";
 import Banner from "../Banner";
-
+import Rows from "../Rows";
 //styles
  import "./Home.css"; 
+
 
 function Home() {
    
   return (
     <div className="home">
       <Navbar />
-      <Banner />
+   {/*    <Banner /> */}
       {/* <Featured /> */}
-      {/* <List/>
-      <List/>
-      <List/>
-      <List/> */}
+     <Rows title="Trending Now" />
+     <Rows title="Top Rated"/>
+     <Rows title="Action Movies"/>
+     <Rows title="Comedy Movies"/>
+     <Rows title="Horror Movies"/>
+     <Rows title="Romance Movies"/>
+     <Rows title="Documentaries"/>
     </div>
   );
 }
 
 export default Home;
 
-/* export const fetchDataFromAPI = async () => {
+ /* export const fetchDataFromAPI = async () => {
 const [netflixOriginals, trendingNow, topRated, actionMovies, comedyMovies, horrorMovies, romanceMovies,documentaries] = await Promise.all([
   fetch(requests.fetchNetflixOriginals).then(res => res.json()).then(data=>console.log(data.results) ),
   fetch(requests.fetchTrendingNow).then(res => res.json()),
@@ -37,7 +41,8 @@ const [netflixOriginals, trendingNow, topRated, actionMovies, comedyMovies, horr
   fetch(requests.fetchHorrorMovies).then(res => res.json()),
   fetch(requests.fetchRomanceMovies).then(res => res.json()),
   fetch(requests.fetchDocumentaries).then(res => res.json()),
-]) */
+]) 
+ } */
 /* return{
   props:{
     netflixOriginals:netflixOriginals.results,
