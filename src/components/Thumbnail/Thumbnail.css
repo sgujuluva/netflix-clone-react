@@ -1,5 +1,15 @@
 .thumbnail-container{
-    min-width: 180px;
+   
+    /* min-width: 250px;
     position: relative;
-    height:28px;
+    height:28px; */
+   width:15vw;
+   height:150px;
+   
+}
+.thumbnail img{
+width:100%;
+padding:3%;
+height:100%;
+   
 }
