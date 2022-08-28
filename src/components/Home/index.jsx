@@ -3,7 +3,6 @@ import Axios from "axios";
 //components
 import Featured from "../Featured/index";
 import Navbar from "../Navbar/index";
-import List from "../List/index";
 import requests from "../utils/request";
 import Banner from "../Banner";
 import Rows from "../Rows";
@@ -41,58 +40,75 @@ function Home() {
     };
     fetchDataFromAPI();
   }, []); */
-const fetchData = () => {
-  const trendingNowApi =  "https://api.themoviedb.org/3/trending/all/day?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US"
-  const topRatedApi = "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US";
-  const actionMoviesApi =   "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US&with_genres=28";
-  const comedyMoviesApi = "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=35";
-  const horrorMoviesApi="https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=27"
-  const romanceMoviesApi="https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=10749"
-  const documentariesApi="https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=99"
+  const fetchData = () => {
+    const trendingNowApi =
+      "https://api.themoviedb.org/3/trending/all/day?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US";
+    const topRatedApi =
+      "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US";
+    const actionMoviesApi =
+      "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US&with_genres=28";
+    const comedyMoviesApi =
+      "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=35";
+    const horrorMoviesApi =
+      "https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=27";
+    const romanceMoviesApi =
+      "https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=10749";
+    const documentariesApi =
+      "https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=99";
 
-  const trendingNow = Axios.get(trendingNowApi);
-  const topRated = Axios.get(topRatedApi);
-  const actionMovies = Axios.get(actionMoviesApi);
-  const comedyMovies = Axios.get(comedyMoviesApi);
-  const horrorMovies = Axios.get(horrorMoviesApi);
-  const romanceMovies = Axios.get(romanceMoviesApi);
-  const documentaries = Axios.get(documentariesApi);
+    const trendingNow = Axios.get(trendingNowApi);
+    const topRated = Axios.get(topRatedApi);
+    const actionMovies = Axios.get(actionMoviesApi);
+    const comedyMovies = Axios.get(comedyMoviesApi);
+    const horrorMovies = Axios.get(horrorMoviesApi);
+    const romanceMovies = Axios.get(romanceMoviesApi);
+    const documentaries = Axios.get(documentariesApi);
 
-  Axios.all([trendingNow,topRated,actionMovies,comedyMovies,horrorMovies,romanceMovies,documentaries]).then(Axios.spread((...allData) => {
-    const trendingNowMovie = allData[0];
-    const topRatedMovie = allData[1];
-    const actionMoviesMovie = allData[2];
-    const comedyMoviesMovie = allData[3];
-    const horrorMoviesMovie = allData[4];
-    const romanceMoviesMovie = allData[5];
-    const documentaries = allData[6];
-    setTrendingNow1(trendingNowMovie)
-    setTopRated1(topRatedMovie)
-    setActionMovies1(actionMoviesMovie)
-    setComedyMovies1(comedyMoviesMovie)
-    setHorrorMovies1(horrorMoviesMovie)
-    setRomanceMovies1(romanceMoviesMovie)
-    setDocumentaries1(documentaries)
-  }))
-}
-useEffect(() =>{
-  fetchData();
-},[])
-console.log(trendingNow1)
+    Axios.all([
+      trendingNow,
+      topRated,
+      actionMovies,
+      comedyMovies,
+      horrorMovies,
+      romanceMovies,
+      documentaries,
+    ]).then(
+      Axios.spread((...allData) => {
+        const trendingNowMovie = allData[0];
+        const topRatedMovie = allData[1];
+        const actionMoviesMovie = allData[2];
+        const comedyMoviesMovie = allData[3];
+        const horrorMoviesMovie = allData[4];
+        const romanceMoviesMovie = allData[5];
+        const documentaries = allData[6];
+        setTrendingNow1(trendingNowMovie);
+        setTopRated1(topRatedMovie);
+        setActionMovies1(actionMoviesMovie);
+        setComedyMovies1(comedyMoviesMovie);
+        setHorrorMovies1(horrorMoviesMovie);
+        setRomanceMovies1(romanceMoviesMovie);
+        setDocumentaries1(documentaries);
+      })
+    );
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  console.log(trendingNow1);
 
   return (
     <div className="home">
       <Navbar />
-     {/*    <Banner />  */}
+      {/*    <Banner />  */}
       {/* <Featured /> */}
       <Rows title="Trending Now" movie={trendingNow1} />
 
-      <Rows title="Top Rated" movie={topRated1}/>
-      <Rows title="Action Movies" movie={actionMovies1}  />
-      <Rows title="Comedy Movies" movie = {comedyMovies1}/>
-      <Rows title="Horror Movies" movie = {horrorMovies1}/>
-      <Rows title="Romance Movies" movie = {romanceMovies1}/>
-      <Rows title="Documentaries" movie = {documentaries1}/> 
+      <Rows title="Top Rated" movie={topRated1} />
+      <Rows title="Action Movies" movie={actionMovies1} />
+      <Rows title="Comedy Movies" movie={comedyMovies1} />
+      <Rows title="Horror Movies" movie={horrorMovies1} />
+      <Rows title="Romance Movies" movie={romanceMovies1} />
+      <Rows title="Documentaries" movie={documentaries1} />
     </div>
   );
 }
