@@ -8,10 +8,27 @@ import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
 import "./Rows.css"
 import { imageListClasses } from "@mui/material";
 
-function Rows({ title,movies }) {
-     console.log("the movies is:",movies)
+function Rows({ title,movie }) {
+   console.log(movie) 
+  return (
+    <div className="main-list">
+      <h2>{title}</h2>
+      <div className="movie-list">
+        <ChevronLeftOutlinedIcon />
+        <div className="thumbnail">
+           {movie.map((item => (
+                <Thumbnail key={item.id} itemThumbnail={item}/>
+            )))}    
+              
+        </div>
+        <ChevronRightOutlinedIcon />
+      </div>
+    </div>
+  );
+}
 
-  /* const [movies, setMovies] = useState([]);
+export default Rows;
+ /* const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchDataFromAPI =  () => {
@@ -32,22 +49,3 @@ function Rows({ title,movies }) {
     };
     fetchDataFromAPI();
   }, []); */
-
-  return (
-    <div className="main-list">
-      <h2>{title}</h2>
-      <div className="movie-list">
-        <ChevronLeftOutlinedIcon />
-        <div className="thumbnail">
-           {movies.map((movie => (
-                <Thumbnail key={movie.id} movieThumbnail={movie}/>
-            )))}    
-              
-        </div>
-        <ChevronRightOutlinedIcon />
-      </div>
-    </div>
-  );
-}
-
-export default Rows;
