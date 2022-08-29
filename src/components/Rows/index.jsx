@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {motion} from "framer-motion"
 //components
 import Thumbnail from "../Thumbnail";
 
@@ -11,17 +12,21 @@ import "./Rows.css";
 
 function Rows({ title, movie }) {
   return (
+    <div className="main-row">
     <div className="main-list">
       <h2>{title}</h2>
-      <div className="movie-list">
+      <motion.div className="movie-list">
+       
         <ChevronLeftOutlinedIcon />
-        <div className="thumbnail">
+        <motion.div drag="x" dragConstraints={{right:0}} className="thumbnail">
      {movie.map((item) => (
       <Thumbnail itemThumbnail={item}/>
      ))}
-        </div>
+        </motion.div>
         <ChevronRightOutlinedIcon />
-      </div>
+        
+      </motion.div>
+    </div>
     </div>
   );
 }

@@ -1,9 +1,5 @@
 .thumbnail-container{
-   
-    /* min-width: 250px;
-    position: relative;
-    height:28px; */
-   width:15vw;
+    width:15vw;
    height:150px;
    
 }
@@ -12,4 +8,9 @@ width:100%;
 padding:3%;
 height:100%;
    
+}
+.thumbnail img:hover{
+    scale: 2;
+    cursor: pointer;
+    border-radius: 20px;
 }

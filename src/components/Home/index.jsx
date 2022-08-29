@@ -27,20 +27,20 @@ function Home() {
       "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US&with_genres=28";
     const comedyMoviesApi =
       "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=35";
-    /* const horrorMoviesApi =
-      "https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=27";
+     const horrorMoviesApi =
+      "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=27";
     const romanceMoviesApi =
-      "https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=10749";
+      "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=10749";
     const documentariesApi =
-    "https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=99"; */
+    "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=99"; 
     
     const trendingNow = Axios.get(trendingNowApi);
     const topRated = Axios.get(topRatedApi);
     const actionMovies = Axios.get(actionMoviesApi);
     const comedyMovies = Axios.get(comedyMoviesApi);
-    /* const horrorMovies = Axios.get(horrorMoviesApi);
+     const horrorMovies = Axios.get(horrorMoviesApi);
     const romanceMovies = Axios.get(romanceMoviesApi);
-    const documentaries = Axios.get(documentariesApi); */
+    const documentaries = Axios.get(documentariesApi); 
    
     Axios.all([trendingNow,topRated,actionMovies,comedyMovies/* ,horrorMovies,romanceMovies,documentaries */ ])
     .then(Axios.spread((...response) => {
@@ -75,7 +75,7 @@ console.log("trend",trendingNow1)
   return (
     <div className="home">
       <Navbar />
-       {/*  <Banner />   */}
+       <Banner />   
       {/* <Featured /> */}
        <Rows title="Trending Now"  movie={trendingNow1} />
       <Rows title="Top Rated"  movie={topRated1}   />

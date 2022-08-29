@@ -1,7 +1,14 @@
-.main-list{
-   
-  }
 .thumbnail{
     display:flex;
-      padding:5%;
+      padding:0.1%;
+}
+.main-row{
+position:relative;
+
+}
+.main-list{ 
+  margin-left:3%;
+}
+.movie-list{
+
 }
