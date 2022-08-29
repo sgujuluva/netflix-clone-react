@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {motion} from "framer-motion"
 //components
 import Thumbnail from "../Thumbnail";
@@ -11,22 +11,28 @@ import "./Rows.css";
 
 
 function Rows({ title, movie }) {
+  const [width,setWidth] = useState(0);
+  let carousel = useRef();
+  useEffect(() => {
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+  },[])
+
   return (
     <div className="main-row">
-    <div className="main-list">
+    <motion.div className="main-list">
       <h2>{title}</h2>
-      <motion.div className="movie-list">
+      <motion.div drag="x" className="movie-list" ref={carousel}>
        
-        <ChevronLeftOutlinedIcon />
+{/*         <ChevronLeftOutlinedIcon /> */}
         <motion.div drag="x" dragConstraints={{right:0}} className="thumbnail">
      {movie.map((item) => (
       <Thumbnail itemThumbnail={item}/>
      ))}
         </motion.div>
-        <ChevronRightOutlinedIcon />
+  {/*       <ChevronRightOutlinedIcon /> */}
         
       </motion.div>
-    </div>
+    </motion.div>
     </div>
   );
 }

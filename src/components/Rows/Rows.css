@@ -3,12 +3,14 @@
       padding:0.1%;
 }
 .main-row{
-position:relative;
+  position:relative;
 
 }
 .main-list{ 
   margin-left:3%;
+  padding:1%;
 }
 .movie-list{
-
+cursor:pointer;
+overflow: hidden;
 }
