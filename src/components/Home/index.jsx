@@ -14,9 +14,9 @@ function Home() {
   const [topRated1, setTopRated1] = useState([]);
   const [actionMovies1, setActionMovies1] = useState([]);
   const [comedyMovies1, setComedyMovies1] = useState([]);
-  const [horrorMovies1, setHorrorMovies1] = useState([]);
+  /* const [horrorMovies1, setHorrorMovies1] = useState([]);
   const [romanceMovies1, setRomanceMovies1] = useState([]);
-  const [documentaries1, setDocumentaries1] = useState([]);
+  const [documentaries1, setDocumentaries1] = useState([]); */
 
   const fetchData = () => {
     const trendingNowApi =
@@ -54,10 +54,10 @@ function Home() {
         const documentaries = response[6]; */
      
 
-        setTrendingNow1(trendingNowMovie);
-        setTopRated1(topRatedMovie);
-        setActionMovies1(actionMoviesMovie);
-        setComedyMovies1(comedyMoviesMovie);
+        setTrendingNow1(trendingNowMovie.data.results);
+        setTopRated1(topRatedMovie.data.results);
+        setActionMovies1(actionMoviesMovie.data.results);
+        setComedyMovies1(comedyMoviesMovie.data.results);
        /*  setHorrorMovies1(horrorMoviesMovie);
         setRomanceMovies1(romanceMoviesMovie);
         setDocumentaries1(documentaries); */
@@ -71,16 +71,16 @@ function Home() {
   }, []);  */
   
 fetchData(); 
-
+console.log("trend",trendingNow1)
   return (
     <div className="home">
       <Navbar />
        {/*  <Banner />   */}
       {/* <Featured /> */}
        <Rows title="Trending Now"  movie={trendingNow1} />
-      <Rows title="Top Rated"  /* movie={topRated1}  */ />
-      <Rows title="Action Movies" /*  movie={actionMovies1} */  />
-      <Rows title="Comedy Movies"/*  movie={comedyMovies1} */ />
+      <Rows title="Top Rated"  movie={topRated1}   />
+      <Rows title="Action Movies"  movie={actionMovies1}   />
+      <Rows title="Comedy Movies" movie={comedyMovies1}  />
      {/*  <Rows title="Horror Movies" movie={horrorMovies1} />
       <Rows title="Romance Movies" movie={romanceMovies1} />
       <Rows title="Documentaries" movie={documentaries1} />  */}
@@ -115,25 +115,4 @@ const [netflixOriginals, trendingNow, topRated, actionMovies, comedyMovies, horr
   }
 } */
 
-  /* useEffect(() => {
-    const fetchDataFromAPI = async () => {
-      await Promise.all[
-        (fetch(
-          "https://api.themoviedb.org/3/trending/all/day?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US"
-        )
-          .then((res) => res.json())
-          .then((data) => setTrendingNow(data.results)),
-        fetch(
-          "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US"
-        )
-          .then((res) => res.json())
-          .then((data) => setTopRated(data.results)),
-        fetch(
-          "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US&with_genres=28"
-        )
-          .then((res) => res.json())
-          .then((data) => setActionMovies(data.results)))
-      ];
-    };
-    fetchDataFromAPI();
-  }, []); */
+  
