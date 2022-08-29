@@ -27,41 +27,40 @@ function Home() {
       "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en=US&with_genres=28";
     const comedyMoviesApi =
       "https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=35";
-    const horrorMoviesApi =
+    /* const horrorMoviesApi =
       "https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=27";
     const romanceMoviesApi =
       "https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=10749";
     const documentariesApi =
-    "https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=99";
+    "https://api.themoviedb.org/3/discover/movie?0ccbed74fc5b3a104af07905ee60637d&language=en-US&with_genres=99"; */
     
     const trendingNow = Axios.get(trendingNowApi);
     const topRated = Axios.get(topRatedApi);
     const actionMovies = Axios.get(actionMoviesApi);
     const comedyMovies = Axios.get(comedyMoviesApi);
-    const horrorMovies = Axios.get(horrorMoviesApi);
+    /* const horrorMovies = Axios.get(horrorMoviesApi);
     const romanceMovies = Axios.get(romanceMoviesApi);
-    const documentaries = Axios.get(documentariesApi);
+    const documentaries = Axios.get(documentariesApi); */
    
-    Axios.all([trendingNow,topRated,actionMovies,comedyMovies,horrorMovies,romanceMovies,documentaries ])
+    Axios.all([trendingNow,topRated,actionMovies,comedyMovies/* ,horrorMovies,romanceMovies,documentaries */ ])
     .then(Axios.spread((...response) => {
     
-      console.log("reysponse is",response)
-        const trendingNowMovie = response[0];
+          const trendingNowMovie = response[0];
         const topRatedMovie = response[1];
         const actionMoviesMovie = response[2];
         const comedyMoviesMovie = response[3];
-        const horrorMoviesMovie = response[4];
+        /* const horrorMoviesMovie = response[4];
         const romanceMoviesMovie = response[5];
-        const documentaries = response[6];
+        const documentaries = response[6]; */
      
 
         setTrendingNow1(trendingNowMovie);
         setTopRated1(topRatedMovie);
         setActionMovies1(actionMoviesMovie);
         setComedyMovies1(comedyMoviesMovie);
-        setHorrorMovies1(horrorMoviesMovie);
+       /*  setHorrorMovies1(horrorMoviesMovie);
         setRomanceMovies1(romanceMoviesMovie);
-        setDocumentaries1(documentaries);
+        setDocumentaries1(documentaries); */
       
     })
     );
@@ -71,7 +70,7 @@ function Home() {
     fetchData();
   }, []);  */
   
-fetchData();
+fetchData(); 
 
   return (
     <div className="home">
@@ -79,13 +78,12 @@ fetchData();
        {/*  <Banner />   */}
       {/* <Featured /> */}
        <Rows title="Trending Now"  movie={trendingNow1} />
-
-      <Rows title="Top Rated"  movie={topRated1}  />
-      <Rows title="Action Movies"  movie={actionMovies1}  />
-      <Rows title="Comedy Movies" movie={comedyMovies1} />
-      <Rows title="Horror Movies" movie={horrorMovies1} />
+      <Rows title="Top Rated"  /* movie={topRated1}  */ />
+      <Rows title="Action Movies" /*  movie={actionMovies1} */  />
+      <Rows title="Comedy Movies"/*  movie={comedyMovies1} */ />
+     {/*  <Rows title="Horror Movies" movie={horrorMovies1} />
       <Rows title="Romance Movies" movie={romanceMovies1} />
-      <Rows title="Documentaries" movie={documentaries1} /> 
+      <Rows title="Documentaries" movie={documentaries1} />  */}
     </div>
   );
 }

@@ -9,16 +9,16 @@ import "./Rows.css"
 import { imageListClasses } from "@mui/material";
 
 function Rows({ title,movie }) {
-   console.log(movie) 
-  return (
+  console.log(movie)
+     return (
     <div className="main-list">
       <h2>{title}</h2>
       <div className="movie-list">
         <ChevronLeftOutlinedIcon />
         <div className="thumbnail">
-           {movie.map((item => (
+           {movie.data.map((item => (
                 <Thumbnail key={item.id} itemThumbnail={item}/>
-            )))}    
+            )))}  
               
         </div>
         <ChevronRightOutlinedIcon />
