@@ -60,3 +60,7 @@
   flex-direction: column;
   position:absolute;
 }
+
+.scrollColor{
+  background-color: black;
+}

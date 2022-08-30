@@ -23,13 +23,13 @@ function Rows({ title, movie }) {
       <h2>{title}</h2>
       <motion.div drag="x" className="movie-list" ref={carousel}>
        
-{/*         <ChevronLeftOutlinedIcon /> */}
+         <ChevronLeftOutlinedIcon />
         <motion.div drag="x" dragConstraints={{right:0}} className="thumbnail">
      {movie.map((item) => (
       <Thumbnail itemThumbnail={item}/>
      ))}
         </motion.div>
-  {/*       <ChevronRightOutlinedIcon /> */}
+       <ChevronRightOutlinedIcon /> 
         
       </motion.div>
     </motion.div>
