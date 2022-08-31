@@ -1,32 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 //components
-import Thumbnail from "../Thumbnail"; 
-import { baseUrl } from "../constants/movieurl";
+import Thumbnail from "../Thumbnail";
 import Carousel from "react-bootstrap/Carousel";
 //css
 import "./Rows.css";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Rows({ title, movie }) {
-
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-       <Carousel.Caption>
-          <h3>{title}</h3>
-        </Carousel.Caption>
-      <Carousel.Item>
-        {movie.map(item => (
-          <Thumbnail itemThumbnail={item}/>      
-        ))}  
-      
-      </Carousel.Item>
-      
-    </Carousel>
+    <div className="img-carousel">
+      <Carousel activeIndex={index} onSelect={handleSelect}>
+        <h3>{title}</h3>
+        <Carousel.Item className="one">
+          {movie.map((item) => (
+            <Thumbnail itemThumbnail={item} />
+          ))}
+        </Carousel.Item>
+      </Carousel>
+    </div>
   );
 }
 
@@ -53,4 +49,6 @@ export default Rows;
   useEffect(() => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   },[]) */
-    {/* <img className="d-block w-100" src={`https://image.tmdb.org/t/p/w300/${item?.backdrop_path || item?.poster_path }`} alt="" /> */}
+{
+  /* <img className="d-block w-100" src={`https://image.tmdb.org/t/p/w300/${item?.backdrop_path || item?.poster_path }`} alt="" /> */
+}
