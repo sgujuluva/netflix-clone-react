@@ -1,27 +1,5 @@
-/* .thumbnail{
-    display:flex;
-      padding:0.1%;
-}
-.main-row{
-  position:relative;
-
-}
-.main-list{ 
-  margin-left:3%;
-  
-}
-.movie-list{
-cursor:pointer;
-overflow: hidden;
-} */
 .img-carousel {
   width: 100%;
-  /* display: flex;
-  justify-content: center; */
+  margin-bottom: 2%;
 }
-.img-carousel .one {
 
-  width: 100%;
-  /* display: flex; */
-  /* justify-content: space-around; */
-}

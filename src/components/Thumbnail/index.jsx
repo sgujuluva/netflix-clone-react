@@ -1,8 +1,6 @@
 import React from "react";
 import "./Thumbnail.css";
 
-import Carousel from "react-bootstrap/Carousel";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function Thumbnail({ itemThumbnail }) {
   return (
