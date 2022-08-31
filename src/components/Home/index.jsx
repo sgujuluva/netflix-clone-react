@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 //components
-import Featured from "../Featured/index";
 import Navbar from "../Navbar/index";
 import requests from "../utils/request";
 import Banner from "../Banner";
@@ -66,18 +65,15 @@ function Home() {
     );
 
   };
-/*  useEffect(() => {
-    fetchData();
-  }, []);  */
-  
+ 
 fetchData(); 
+
 console.log("trend",trendingNow1)
   return (
     <div className="home">
       <Navbar />
        <Banner />   
-      {/* <Featured /> */}
-       <Rows title="Trending Now"  movie={trendingNow1} />
+      <Rows title="Trending Now"  movie={trendingNow1} />
       <Rows title="Top Rated"  movie={topRated1}   />
       <Rows title="Action Movies"  movie={actionMovies1}   />
       <Rows title="Comedy Movies" movie={comedyMovies1}  />

@@ -1,6 +1,7 @@
 .thumbnail-container img {
    width: 100%;
    border-radius: 5px;
+   cursor:pointer;
 }
 
 .img-carousel .title{
