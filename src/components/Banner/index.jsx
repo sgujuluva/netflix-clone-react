@@ -7,6 +7,8 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoIcon from "@mui/icons-material/Info";
 //var
 const NETFLIX_API_KEY = process.env.REACT_APP_API_KEY;
+console.log(NETFLIX_API_KEY)
+
 const url = `https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&with_network=213`;
 
 function Banner() {
@@ -63,20 +65,3 @@ function Banner() {
 
 export default Banner;
 
-/* const apiFetch = async () => {
-  
-    const response = await Axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=0ccbed74fc5b3a104af07905ee60637d&with_network=213` 
-    );
-    setNetflixOriginals(response.data.results );
-  };
-
-
-let random = Math.floor(Math.random() * 20) 
-
-  useEffect(() => {
-    apiFetch();
-    
-   
-  },[netflixOriginals]);
- */
